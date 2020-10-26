@@ -22,8 +22,7 @@ Descargar Fuentes de git
 ```
 git clone https://github.com/JesusGarcia9009/Spring-Boot.git
 ```
-Una vez descargada las fuentes de debe ejecutar en consola:
-- # Definir ruta para la carga de los properties en gitlab o git hub
+Una vez descargada las fuentes de debe ejecutar en consola se debe definir ruta para la carga de los properties en gitlab o git hub: 
 
 Luego de esto, se debe editar los archivo 'yml' donde se encuentran las configuraciones de conexion con el 'ms-config-server', su nombre debe ser:
 > **bootstrap.yml**
