@@ -16,13 +16,13 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
-import com.pdr.cobranza.cliente.controller.impl.TelefonoControllerImpl;
+import com.ms.cliente.controller.impl.TelefonoControllerImpl;
+import com.ms.cliente.dto.DemograficDataRequest;
+import com.ms.cliente.dto.GenTelefonoDTO;
+import com.ms.cliente.dto.GenTelefonoResponse;
+import com.ms.cliente.dto.RatificarDatosRequest;
+import com.ms.cliente.service.TelefonoService;
 import com.pdr.cobranza.cliente.controller.mock.TelefonoMock;
-import com.pdr.cobranza.cliente.dto.DemograficDataRequest;
-import com.pdr.cobranza.cliente.dto.GenTelefonoDTO;
-import com.pdr.cobranza.cliente.dto.GenTelefonoResponse;
-import com.pdr.cobranza.cliente.dto.RatificarDatosRequest;
-import com.pdr.cobranza.cliente.service.TelefonoService;
 import com.pdr.common.exception.InsertOrUpdateException;
 import com.pdr.common.exception.NotRatificationException;
 

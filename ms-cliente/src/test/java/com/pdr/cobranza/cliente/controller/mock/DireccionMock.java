@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.pdr.cobranza.cliente.dto.GenDireccionesResponse;
+import com.ms.cliente.dto.GenDireccionesResponse;
 
 import lombok.extern.slf4j.Slf4j;
 

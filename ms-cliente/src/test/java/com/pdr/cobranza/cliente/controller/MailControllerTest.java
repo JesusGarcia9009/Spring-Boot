@@ -16,12 +16,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
-import com.pdr.cobranza.cliente.controller.impl.MailControllerImpl;
+import com.ms.cliente.controller.impl.MailControllerImpl;
+import com.ms.cliente.dto.DemograficDataRequest;
+import com.ms.cliente.dto.GenMailDTO;
+import com.ms.cliente.dto.RatificarMailRequest;
+import com.ms.cliente.service.MailService;
 import com.pdr.cobranza.cliente.controller.mock.MailMock;
-import com.pdr.cobranza.cliente.dto.DemograficDataRequest;
-import com.pdr.cobranza.cliente.dto.GenMailDTO;
-import com.pdr.cobranza.cliente.dto.RatificarMailRequest;
-import com.pdr.cobranza.cliente.service.MailService;
 import com.pdr.common.exception.NotRatificationException;
 
 import lombok.extern.slf4j.Slf4j;

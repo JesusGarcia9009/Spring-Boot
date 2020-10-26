@@ -2,105 +2,123 @@
 
 Microservicio orientado al perfilamiento de manera global en la aplicacion
 
-## Comenzando 馃殌
+## Comenzando 🚀
 
-Una vez descargada las fuentes de debe ejecutar la siguiente linea en la consola cmd:
-> **mvn clean install**
-O
-> **mvn dependency:resolve**
+Descargar Fuentes de git
 
-Ademas de esto, se debe editar los archivo de propiedades donde se encuentran todas las configuraciones de MS, este debe estar agregado en el Servidor de configuraciones
+```
+git clone http://srv-gitlab.pdr.local/grupo-sistema-cobranzas/back-end/pdr-ms-cobranza-vista360.git
+git checkout develop
+```
+Una vez descargada las fuentes de debe ejecutar en consola:
+
+```
+mvn clean install
+```
+
+Ademas de esto, se debe editar los archivo 'yml' donde se encuentran las configuraciones de conexion con el ConfigServer, su nombre debe ser:
+> **bootstrap.yml**
+
+En el cual se debe fijar la ruta de acceso al Config Server y el usuario de git y el nombre del archivo de propiedades.
  
-## Agrupaci贸n 馃殌
+## Agrupación
 La estructura del proyecto es la siguiente
 
-- com.pdr.common
-- com.pdr.common.config
-- com.pdr.common.controller
-- com.pdr.common.controller.impl
-- com.pdr.common.dto
-- com.pdr.common.dto.request
-- com.pdr.common.entity
-- com.pdr.common.exception
-- com.pdr.common.repository
+- com.pdr.session
+- com.pdr.session.config
+- com.pdr.session.controller
+- com.pdr.session.controller.impl
+- com.pdr.session.dto
+- com.pdr.session.repository
+- com.pdr.session.service
+- com.pdr.session.service.impl
+- com.pdr.session.utils
 
-## Pre-requisitos ?
+## Pre-requisitos 🛠
 
 - Maquina Virtual de Java
 - Maven
 - Variables de entorno
 - Docker 
 - IDE
+- Lombok
 
 
-### Instalaci贸n ?
+### Instalación 🔧
 
+1.- Configuracion de maven apuntando a nuestro nexus local mas las configuraciones de sonar.
 
-_Una serie de ejemplos paso a paso que te dice lo que debes ejecutar para tener un entorno de desarrollo ejecutandose
+```
+C:\Users\{user}\.m2\settings.xml
+<settings>
 
+ <mirrors>
+    <mirror>
+      <id>nexus</id>
+      <name>maven-central</name>
+      <url>http://132.130.152.12/repository/pdr-maven/</url>
+      <mirrorOf>*</mirrorOf>
+    </mirror>
+  </mirrors>
 
-_D铆 c贸mo ser谩 ese paso
+  <servers>
+    <server>
+      <id>nexus</id>
+      <username>admin</username>
+      <password>xxxxxxxxx</password>
+    </server>
+  </servers>
 
+<pluginGroups>
+    <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+  </pluginGroups>
+  <profiles>
+    <profile>
+      <id>sonar</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <properties>
+        <sonar.host.url>http://132.130.152.10</sonar.host.url>
+        <sonar.login>10929f15034cd153365a8970d7b577e1687d012a</sonar.login>
+      <!--  <sonar.projectName>Cobranza</sonar.projectName>-->
+      <!--  <sonar.projectVersion>master</sonar.projectVersion>-->
+      <!--<sonar.test.exclusions>**/test/**/*.*</sonar.test.exclusions>-->
+      <!--<sonar.exclusions>**/config/**/*.*,**/dto/**/*.*,**/model/**/*.*,**/utils/**/*.*</sonar.exclusions>-->
+      </properties>
+    </profile>
+  </profiles>
+</settings>
+```
 
-``
+1.- Una vez cambiadas las rutas se debe volver a correr el mvn install.
 
-Da un ejempl
+```
+mvn clean install
+```
 
-``
+## Ejecutando las pruebas ⚙
 
+Comando para ejecutar nuestros test unitarios con mockito y luego subir a el reporte a sonar.
 
-_Y repite
+```
+mvn test sonar:sonar
+```
 
+## Despliegue 📦
 
-``
+* Despliegue en IC: solo se debe solicitar un merge request a develop.
 
-hasta finaliza
+* Despliegue en TEST, PREPROD, PRODUCCION: se debe hacer el checkout a la rama mencionada en el documento de release y luego ejecutar los comandos con los valores especificado en dicho documento.
 
-``
+```
+$mvn clean install
+$docker build -t registry.gitlab.com/bs2managers/{component}:{release}_{enviroment} .
+$docker push registry.gitlab.com/bs2managers/{component}:{release}_{enviroment}
+$kubectl apply -f k8s
+```
 
-
-_Finaliza con un ejemplo de c贸mo obtener datos del sistema o como usarlos para una peque帽a demo
-
-
-## Ejecutando las pruebas 鈿?
-
-
-_Explica como ejecutar las pruebas automatizadas para este sistema
-
-
-### Analice las pruebas end-to-end ?
-
-
-_Explica que verifican estas pruebas y por qu茅
-
-
-``
-
-Da un ejempl
-
-``
-
-
-### Y las pruebas de estilo de codificaci贸n 鈱?
-
-
-_Explica que verifican estas pruebas y por qu茅
-
-
-``
-
-Da un ejempl
-
-``
-
-
-## Despliegue ?
-
-
-_Agrega notas adicionales sobre como hacer deploy
-
-
-## Construido con 馃洜
+## Construido con 🛠
 
 
 Herramientas y lenguajes utilizados
@@ -111,14 +129,20 @@ Herramientas y lenguajes utilizados
 * [Eclipse](https://www.eclipse.org/) - IDE de desarrollo.
 * [DBeaver](https://dbeaver.io//) - Herramienta de base de datos.
 * [Swagger](https://swagger.io/) - Documentacion de los servicios.
+* [Lombok](https://projectlombok.org/) - Creacion de metodos basicos de objetos.
 
 
-## Autores 鉁?
+## Autores.
 
-* **Jesus Garcia** - *Trabajo Inicial-Programaci贸n-Dcumentaci贸n* 
+* **Jesús García** - *Trabajo Inicial-Programación-Dcumentación* 
 
-* **Nelson Alvarado** - *Trabajo Inicial-Programaci贸n-Dcumentaci贸n* 
+* **Nelson Alvarado** - *Trabajo Inicial-Programación-Dcumentación* 
 
+* **Fabian Rojas** - *Trabajo Inicial-Programación-Dcumentación* 
+
+* **Sevastian Valenzuela** - *Trabajo Inicial-Programación-Dcumentación* 
+
+* **Patricio Martinez** - *Trabajo Inicial-Programación-Dcumentación* 
 
 
 ## Agradecimientos

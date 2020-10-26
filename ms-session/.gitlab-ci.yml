@@ -1,69 +1,59 @@
 variables:
   DOCKER_DRIVER: overlay2
   DOCKER_TLS_CERTDIR: ""
-  REGISTRY_URL: registry.gitlab.com/p.reyesfido/my_projects
+  #DOCKER_HOSTS: tcp://localhost:2375
+  DOCKER_HOSTS: tcp://127.0.0.1:23750
+  REGISTRY_URL: $REGISTRY_BS2_URL
   PROJECT_NAME: $CI_PROJECT_NAME
   NAMESPACE: cross
   CI_REGISTRY: registry.gitlab.com
-  CI_REGISTRY_USER: preyesc@bs2.cl
+  CI_REGISTRY_USER: preyesc
   IMAGE_CODE: "maven:latest"
   MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
-#  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
+  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
  
 cache:
   paths:
     - .m2/repository/
-    - target/
 
+ 
 stages:
-- Check Dockerfile
-- IDC compile
-- Build image
+- compile code stage
+- docker stage
 - Deploy K8s
 
-checking_dockerfile:
-  stage: Check Dockerfile
-  before_script:
-    - echo "$(head -1 Dockerfile|awk '{print $2}')"
-    - VAR="$(head -1 Dockerfile|awk '{print $2}')"
-    - echo $IMAGE_CODE
-    - echo "Cleaning up"
-    - rm -rf target/
-    - rm -rf .m2/repository/
+compile_code_stage:
+  image: maven
+  only:
+    - develop
+  stage: compile code stage
   script:
-    - echo $CI_PROJECT_REPOSITORY_LANGUAGES
-    - echo $CI_PROJECT_NAME
-    - |
-      if [ ! "$(cat Dockerfile|grep alpine)" ]; then 
-          echo "No se encuentra Alpine como imagen "
-          exit 1; 
-          fi
-      
-docker build:
+  - mvn $MAVEN_CLI_OPTS install -DskipTests
+  - export BUILD_DATE=$(date '+%Y%m%d%H%M')
+  - ls target/
+  artifacts:
+    paths:
+      - target/*.jar
+  
+docker_stage:
   image: docker:dind
   services:
     - docker:19.03.0-dind
   only:
     - develop
-  stage: Build image
+  stage: docker stage
+  dependencies:
+    - compile_code_stage
   before_script:
   - export BUILD_DATE=$(date '+%Y%m%d%H%M')
   - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
   script:
+  - ls target/
   - docker build -t $REGISTRY_URL/$PROJECT_NAME .
   - docker push $REGISTRY_URL/$PROJECT_NAME
-
-codequality_java:
-  image: $IMAGE_CODE
-  stage: IDC compile
-  only:
-    - develop
-  script:
-    - rm -rf target/
-    - rm -rf .m2/repository/
-    - mvn $MAVEN_OPTS install -DskipTests
-    #- mvn $MAVEN_OPTS test sonar:sonar -Dsonar.host.url=http://132.130.152.10 -Dsonar.login=10929f15034cd153365a8970d7b577e1687d012a -Dsonar.gitlab.commit_sha=$CI_BUILD_REF -Dsonar.gitlab.ref_name=$CI_BUILD_REF_NAME -Dsonar.projectVersion=$CI_BUILD_ID -Dsonar.gitlab.project_id=$CI_PROJECT_URL
-
+  after_script:
+  - rm -rf target/
+  - rm -rf .m2/repository/
 
 k8s_container_deploy:
   only:
@@ -71,6 +61,7 @@ k8s_container_deploy:
   stage: Deploy K8s
   image: dtzar/helm-kubectl
   script:
-    - kubectl --kubeconfig=$K8SADMIN delete deployment pdr-ms-common-deployment -n cross
+    - kubectl --kubeconfig=$K8SADMIN delete deployment $PROJECT_NAME-deployment -n $NAMESPACE
     - kubectl --kubeconfig=$K8SADMIN apply -f k8s
     - kubectl --kubeconfig=$K8SADMIN get all -n $NAMESPACE
+

@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.pdr.cobranza.cliente.dto.DatosClienteResponseDTO;
-import com.pdr.cobranza.cliente.dto.GenDireccionesResponse;
-import com.pdr.cobranza.cliente.dto.GenMailDTO;
-import com.pdr.cobranza.cliente.dto.GenPersonasDTO;
-import com.pdr.cobranza.cliente.dto.GenTelefonoResponse;
-import com.pdr.cobranza.cliente.dto.V360ClienteResponseDTO;
+import com.ms.cliente.dto.DatosClienteResponseDTO;
+import com.ms.cliente.dto.GenDireccionesResponse;
+import com.ms.cliente.dto.GenMailDTO;
+import com.ms.cliente.dto.GenPersonasDTO;
+import com.ms.cliente.dto.GenTelefonoResponse;
+import com.ms.cliente.dto.V360ClienteResponseDTO;
 import com.pdr.common.cobranza.entity.GenPersonasIdModel;
 
 import lombok.extern.slf4j.Slf4j;

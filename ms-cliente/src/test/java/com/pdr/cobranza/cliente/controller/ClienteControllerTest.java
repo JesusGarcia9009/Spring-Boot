@@ -18,15 +18,15 @@ import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.pdr.cobranza.cliente.controller.impl.ClienteControllerImpl;
+import com.ms.cliente.controller.impl.ClienteControllerImpl;
+import com.ms.cliente.dto.DatosClienteResponseDTO;
+import com.ms.cliente.dto.GenPersonaIdRequest;
+import com.ms.cliente.dto.GenPersonasDTO;
+import com.ms.cliente.dto.V360ClienteDesactulizadoRequestDTO;
+import com.ms.cliente.dto.V360ClienteRequestDTO;
+import com.ms.cliente.dto.V360ClienteResponseDTO;
+import com.ms.cliente.service.ClienteService;
 import com.pdr.cobranza.cliente.controller.mock.ClienteMock;
-import com.pdr.cobranza.cliente.dto.DatosClienteResponseDTO;
-import com.pdr.cobranza.cliente.dto.GenPersonaIdRequest;
-import com.pdr.cobranza.cliente.dto.GenPersonasDTO;
-import com.pdr.cobranza.cliente.dto.V360ClienteDesactulizadoRequestDTO;
-import com.pdr.cobranza.cliente.dto.V360ClienteRequestDTO;
-import com.pdr.cobranza.cliente.dto.V360ClienteResponseDTO;
-import com.pdr.cobranza.cliente.service.ClienteService;
 import com.pdr.common.exception.DataNotFoundException;
 import com.pdr.common.exception.UserNotFoundException;
 

@@ -11,4 +11,4 @@ spec:
     targetPort: 9004
   selector:
     app: pdr-ms-common
-  type: LoadBalancer
+  type: NodePort

@@ -17,7 +17,8 @@ spec:
     spec:
       containers:
       - name: pdr-ms-common
-        image: registry.gitlab.com/p.reyesfido/my_projects/pdr-ms-common
+        image: registry.gitlab.com/bs2managers/pdr-ms-common:ic
+        imagePullPolicy: Always
         ports:
         - name: http
           containerPort: 9004

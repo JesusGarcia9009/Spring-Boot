@@ -16,13 +16,13 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
-import com.pdr.cobranza.cliente.controller.impl.DireccionControllerImpl;
+import com.ms.cliente.controller.impl.DireccionControllerImpl;
+import com.ms.cliente.dto.GenDireccionesDTO;
+import com.ms.cliente.dto.GenDireccionesResponse;
+import com.ms.cliente.dto.RatificarDatosRequest;
+import com.ms.cliente.service.DireccionService;
+import com.ms.cliente.utils.ConstantesUtil;
 import com.pdr.cobranza.cliente.controller.mock.DireccionMock;
-import com.pdr.cobranza.cliente.dto.GenDireccionesDTO;
-import com.pdr.cobranza.cliente.dto.GenDireccionesResponse;
-import com.pdr.cobranza.cliente.dto.RatificarDatosRequest;
-import com.pdr.cobranza.cliente.service.DireccionService;
-import com.pdr.cobranza.cliente.utils.ConstantesUtil;
 import com.pdr.common.exception.InsertOrUpdateException;
 import com.pdr.common.exception.NotRatificationException;
 

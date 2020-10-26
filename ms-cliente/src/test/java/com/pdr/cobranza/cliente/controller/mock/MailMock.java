@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import com.pdr.cobranza.cliente.dto.GenMailDTO;
+import com.ms.cliente.dto.GenMailDTO;
 import com.pdr.common.cobranza.entity.GenMailIdModel;
 
 import lombok.extern.slf4j.Slf4j;

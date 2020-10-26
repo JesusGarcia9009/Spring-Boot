@@ -9,11 +9,11 @@
 		<version>2.2.6.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.pdr.cobranza.cliente</groupId>
-	<artifactId>pdr-ms-cobranza-cliente</artifactId>
+	<groupId>com.ms.cliente</groupId>
+	<artifactId>ms-cliente</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>pdr-ms-cobranza-cliente</name>
+	<name>ms-cliente</name>
 	<description>Proyecto de MicroServicio para la gestión de los clientes.</description>
 
 	<properties>

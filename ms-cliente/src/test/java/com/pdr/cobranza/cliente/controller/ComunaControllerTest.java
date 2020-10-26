@@ -15,10 +15,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
-import com.pdr.cobranza.cliente.controller.impl.ComunasControllerImpl;
+import com.ms.cliente.controller.impl.ComunasControllerImpl;
+import com.ms.cliente.dto.GenComunasResponseDTO;
+import com.ms.cliente.service.GenComunasService;
 import com.pdr.cobranza.cliente.controller.mock.ComunasMock;
-import com.pdr.cobranza.cliente.dto.GenComunasResponseDTO;
-import com.pdr.cobranza.cliente.service.GenComunasService;
 import com.pdr.common.exception.DataNotFoundException;
 
 import lombok.extern.slf4j.Slf4j;

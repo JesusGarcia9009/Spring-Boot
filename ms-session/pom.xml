@@ -9,12 +9,12 @@
 		<version>2.2.6.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.pdr.common</groupId>
-	<artifactId>pdr-ms-common</artifactId>
+	<groupId>com.session</groupId>
+	<artifactId>ms-session</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
-	<name>pdr-ms-common</name>
-	<description>Proyecto de MicroServicio para la gestión de las simulaciones.</description>
+	<name>ms-session</name>
+	<description>Proyecto de MicroServicio para la gestión de las autentificacion.</description>
 
 	<properties>
 		<java.version>11</java.version>
@@ -25,7 +25,7 @@
 		<sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
 		<sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
 		<sonar.language>java</sonar.language>
-		<sonar.exclusions>**/session/**/*.*,**/config/**/*.*,**/dto/**/*.*,**/model/**/*.*,**/utils/**/*.*,**/entity/**/*.*,**/service/**/*.*,**/exception/**/*.*,**/common/PdrMsCommonApplication.*,**/common/ServletInitializer.*</sonar.exclusions>
+		<sonar.exclusions>**/session/**/*.*,**/config/**/*.*,**/dto/**/*.*,**/model/**/*.*,**/utils/**/*.*,**/entity/**/*.*,**/service/**/*.*,**/exception/**/*.*,**/repository/**/*.*,**/common/PdrMsCommonApplication.*,**/common/ServletInitializer.*</sonar.exclusions>
 	</properties>
 
 	<dependencies>
@@ -128,6 +128,9 @@
 						</goals>
 					</execution>
 				</executions>
+				<configuration>
+		          <skipTests>true</skipTests>
+		        </configuration>
 			</plugin>
 			<plugin>
 				<groupId>org.jacoco</groupId>

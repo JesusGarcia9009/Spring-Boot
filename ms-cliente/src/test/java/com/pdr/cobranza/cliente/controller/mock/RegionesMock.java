@@ -3,7 +3,7 @@ package com.pdr.cobranza.cliente.controller.mock;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.pdr.cobranza.cliente.dto.GenRegionesResponseDTO;
+import com.ms.cliente.dto.GenRegionesResponseDTO;
 
 import lombok.extern.slf4j.Slf4j;
 

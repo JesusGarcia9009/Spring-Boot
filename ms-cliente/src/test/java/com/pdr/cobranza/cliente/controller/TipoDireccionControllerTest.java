@@ -15,10 +15,10 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 
-import com.pdr.cobranza.cliente.controller.impl.TipoDireccionControllerImpl;
+import com.ms.cliente.controller.impl.TipoDireccionControllerImpl;
+import com.ms.cliente.dto.CbzTipoDocumentoResponseDTO;
+import com.ms.cliente.service.TipoDireccionService;
 import com.pdr.cobranza.cliente.controller.mock.TipoDireccionMock;
-import com.pdr.cobranza.cliente.dto.CbzTipoDocumentoResponseDTO;
-import com.pdr.cobranza.cliente.service.TipoDireccionService;
 import com.pdr.common.exception.DataNotFoundException;
 
 import lombok.extern.slf4j.Slf4j;

@@ -9,11 +9,11 @@
 		<version>2.2.6.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.pdr.common</groupId>
-	<artifactId>pdr-lib-common</artifactId>
+	<groupId>com.lib.common</groupId>
+	<artifactId>lib-common</artifactId>
 	<version>0.0.1</version>
 	<packaging>jar</packaging>
-	<name>pdr-lib-common</name>
+	<name>lib-common</name>
 	<description>Libreria comun para los microservicios de cobranza de cliente</description>
 	
 	<properties>
