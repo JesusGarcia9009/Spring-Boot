@@ -25,9 +25,11 @@ git clone https://github.com/JesusGarcia9009/Spring-Boot.git
 Una vez descargada las fuentes de debe ejecutar en consola se debe definir ruta para la carga de los properties en gitlab o git hub: 
 
 Luego de esto, se debe editar los archivo 'yml' donde se encuentran las configuraciones de conexion con el 'ms-config-server', su nombre debe ser:
-> **bootstrap.yml**
+> **application.yml**
 
-En el cual se debe fijar la ruta de acceso al Config Server y el usuario de git y el nombre del archivo de propiedades.
+En el cual se debe fijar la ruta de acceso al Config Server y el usuario de git y el nombre del archivo de propiedades (Username/Password/URL/Profile/Branch-Master).
+
+Ejemplo: > ** https://github.com/JesusGarcia9009/dev-props
  
 ## Sicronizar MSs
 Editar los archivo 'yml' donde se encuentran la carpeta resources de cada ms 'ms-cliente y ms-session' configurar puerto del gestor de configuraciones Config Server

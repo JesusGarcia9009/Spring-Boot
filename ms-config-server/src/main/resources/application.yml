@@ -8,11 +8,10 @@ spring:
     config:
       server:
         git:
-          uri: https://gitlablpsa.losparques.cl/grupo-sistema-cobranzas/pdr-config-server-dev-props.git
+          uri: https://github.com/JesusGarcia9009/dev-props
           timeout: 15
-          skipSslValidation: true
-          username: configserver
-          password: pdr.2020
+          username: JesusGarcia9009
+          password: jgarcia.123
   
   # Spring properties
   profiles:
@@ -20,6 +19,4 @@ spring:
   #security:
   #  user:
   #    name:test
-  #    password:test.123   
-    
-    
+  #    password:test.123
