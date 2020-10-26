@@ -11,6 +11,9 @@ Entorno completo de Microservicios JAVA utilizando Springboot + SpringCloudConfi
 - IDE
 - Lombok
 - git
+- docker 
+- docker-compose
+- minikube (kubectl + k8s)
 
 ## Comenzando 🚀
 
