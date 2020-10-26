@@ -1,6 +1,6 @@
-# pdr-config-server
+# Entorno Java Arquitectura de Microservicios con Spring Boot
 
-Config server es una aplicacion de springboot cloud orientado a centralizar los properties o configuracion de los microservicios.
+Entorno completo de Microservicios JAVA utilizando Springboot + SpringCloudConfig + GitLab + Docker + Kubernetes
 
 ## Pre-requisitos 🛠
 
