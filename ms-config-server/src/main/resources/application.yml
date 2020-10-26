@@ -1,0 +1,25 @@
+# HTTP Server
+server:
+  port: 8888
+
+spring:
+  # Spring Cloud Config Server Repository
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitlablpsa.losparques.cl/grupo-sistema-cobranzas/pdr-config-server-dev-props.git
+          timeout: 15
+          skipSslValidation: true
+          username: configserver
+          password: pdr.2020
+  
+  # Spring properties
+  profiles:
+    active: Developer
+  #security:
+  #  user:
+  #    name:test
+  #    password:test.123   
+    
+    
