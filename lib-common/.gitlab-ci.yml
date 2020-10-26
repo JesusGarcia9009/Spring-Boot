@@ -1,0 +1,27 @@
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
+  REGISTRY_URL: registry.gitlab.com/p.reyesfido/my_projects
+  PROJECT_NAME: $CI_PROJECT_NAME
+  CI_REGISTRY: registry.gitlab.com
+  CI_REGISTRY_USER: preyesc@bs2.cl
+  IMAGE_CODE: "maven:latest"
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
+ 
+cache:
+  paths:
+    - .m2/repository/
+    - target/
+
+stages:
+- up nexus compile
+
+deploy_nexus:
+  image: $IMAGE_CODE
+  stage: up nexus compile
+  only:
+    - develop
+  script:
+    - mvn $MAVEN_CLI_OPTS install deploy:deploy-file -DgroupId=com.pdr.common -DartifactId=pdr-lib-common -Dversion=0.0.1 -DgeneratePom=true -Dpackaging=jar  -Dfile=target/pdr-lib-common-0.0.1.jar -DrepositoryId=nexus -Durl=http://132.130.152.12/repository/maven-releases/
+ 

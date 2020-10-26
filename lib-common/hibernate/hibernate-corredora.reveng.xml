@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+        <!-- USER COMMON  -->
+    	<schema-selection match-schema="CDORA" match-table="CORR_VENTA" />
+		<schema-selection match-schema="CDORA" match-table="CORR_VENTA_DIRECCION" />
+		<schema-selection match-schema="CDORA" match-table="CORR_VENTA_TELEFONO" />
+		<schema-selection match-schema="CDORA" match-table="CORR_COMUNA" />
+		<schema-selection match-schema="CDORA" match-table="CORR_CIUDAD" />
+		<schema-selection match-schema="CDORA" match-table="CORR_REGION" />
+		
+</hibernate-reverse-engineering>

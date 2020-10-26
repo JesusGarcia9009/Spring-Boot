@@ -1,0 +1,76 @@
+variables:
+  DOCKER_DRIVER: overlay2
+  DOCKER_TLS_CERTDIR: ""
+  REGISTRY_URL: registry.gitlab.com/p.reyesfido/my_projects
+  PROJECT_NAME: $CI_PROJECT_NAME
+  NAMESPACE: cross
+  CI_REGISTRY: registry.gitlab.com
+  CI_REGISTRY_USER: preyesc@bs2.cl
+  IMAGE_CODE: "maven:latest"
+  MAVEN_OPTS: "-Dmaven.repo.local=.m2/repository"
+#  MAVEN_CLI_OPTS: "-s .m2/settings.xml --batch-mode"
+ 
+cache:
+  paths:
+    - .m2/repository/
+    - target/
+
+stages:
+- Check Dockerfile
+- IDC compile
+- Build image
+- Deploy K8s
+
+checking_dockerfile:
+  stage: Check Dockerfile
+  before_script:
+    - echo "$(head -1 Dockerfile|awk '{print $2}')"
+    - VAR="$(head -1 Dockerfile|awk '{print $2}')"
+    - echo $IMAGE_CODE
+    - echo "Cleaning up"
+    - rm -rf target/
+    - rm -rf .m2/repository/
+  script:
+    - echo $CI_PROJECT_REPOSITORY_LANGUAGES
+    - echo $CI_PROJECT_NAME
+    - |
+      if [ ! "$(cat Dockerfile|grep alpine)" ]; then 
+          echo "No se encuentra Alpine como imagen "
+          exit 1; 
+          fi
+      
+docker build:
+  image: docker:dind
+  services:
+    - docker:19.03.0-dind
+  only:
+    - develop
+  stage: Build image
+  before_script:
+  - export BUILD_DATE=$(date '+%Y%m%d%H%M')
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  script:
+  - docker build -t $REGISTRY_URL/$PROJECT_NAME .
+  - docker push $REGISTRY_URL/$PROJECT_NAME
+
+codequality_java:
+  image: $IMAGE_CODE
+  stage: IDC compile
+  only:
+    - develop
+  script:
+    - rm -rf target/
+    - rm -rf .m2/repository/
+    - mvn $MAVEN_OPTS install -DskipTests
+    #- mvn $MAVEN_OPTS test sonar:sonar -Dsonar.host.url=http://132.130.152.10 -Dsonar.login=10929f15034cd153365a8970d7b577e1687d012a -Dsonar.gitlab.commit_sha=$CI_BUILD_REF -Dsonar.gitlab.ref_name=$CI_BUILD_REF_NAME -Dsonar.projectVersion=$CI_BUILD_ID -Dsonar.gitlab.project_id=$CI_PROJECT_URL
+
+
+k8s_container_deploy:
+  only:
+    - develop
+  stage: Deploy K8s
+  image: dtzar/helm-kubectl
+  script:
+    - kubectl --kubeconfig=$K8SADMIN delete deployment pdr-ms-common-deployment -n cross
+    - kubectl --kubeconfig=$K8SADMIN apply -f k8s
+    - kubectl --kubeconfig=$K8SADMIN get all -n $NAMESPACE

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+        <!-- USER COMMON  -->
+    	<schema-selection match-schema="EXTPAR" match-table="APPLICATION" />
+    	<schema-selection match-schema="EXTPAR" match-table="APPLICATION_TYPE"/>
+    	<schema-selection match-schema="EXTPAR" match-table="IMAGES"/>
+    	<schema-selection match-schema="EXTPAR" match-table="PROFILE_APPLICATION"/>
+    	<schema-selection match-schema="EXTPAR" match-table="PROFILE"/>
+    	<schema-selection match-schema="EXTPAR" match-table="PROFILE_SUB_APPLICATION"/>
+    	<schema-selection match-schema="EXTPAR" match-table="SUB_MENU_APPLICATION"/>
+    	<schema-selection match-schema="EXTPAR" match-table="SUB_MENU_FUNCION"/>
+    	<schema-selection match-schema="EXTPAR" match-table="USER_PROFILE"/>
+    	<schema-selection match-schema="EXTPAR" match-table="USERS"/>
+    	<schema-selection match-schema="PRISMA" match-table="TMP_UBIPER"/>
+    	
+</hibernate-reverse-engineering>
+

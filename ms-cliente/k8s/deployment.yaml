@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pdr-ms-cobranza-cliente-deployment
+  namespace: cobranza
+  labels:
+    app: pdr-ms-cobranza-cliente
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pdr-ms-cobranza-cliente
+  template:
+    metadata:
+      labels:
+        app: pdr-ms-cobranza-cliente
+    spec:
+      containers:
+      - name: pdr-ms-cobranza-cliente
+        image: registry.gitlab.com/bs2managers/pdr-ms-cobranza-cliente:ic
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 9000
+        env:
+        - name: SPRING_CONFIG_URI
+          valueFrom:
+            secretKeyRef:
+                name: spring-security
+                key: configserver.host
+        - name: SPRING_CONFIG_BD_URL
+          valueFrom:
+            secretKeyRef:
+                name: spring-security
+                key: bd.url
+        - name: SPRING_CONFIG_BD_USERNAME
+          valueFrom:
+            secretKeyRef:
+                name: spring-security
+                key: bd.username
+        - name: SPRING_CONFIG_BD_PASSWORD
+          valueFrom:
+            secretKeyRef:
+                name: spring-security
+                key: bd.password
+      imagePullSecrets:
+        - name: gitlab-auth-p

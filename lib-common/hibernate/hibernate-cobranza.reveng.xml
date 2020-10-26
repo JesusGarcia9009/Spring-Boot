@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.org/dtd/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+
+		<!--  CONTRATOS Y CLIENTES MODEL -->
+		<schema-selection match-schema="GENPAR" match-table="GEN_DIRECCIONES"/>
+		<schema-selection match-schema="GENPAR" match-table="GEN_MAIL"/>
+		<schema-selection match-schema="GENPAR" match-table="GEN_COMUNAS"/>
+		<schema-selection match-schema="GENPAR" match-table="GEN_REGIONES"/>
+		<schema-selection match-schema="GENPAR" match-table="GEN_TELEFONOS"/>
+		<schema-selection match-schema="GENPAR" match-table="GEN_PERSONAS"/>
+		
+		<schema-selection match-schema="COBPAR" match-table="COB_CONT_MANT_CUOTA"/>
+		<schema-selection match-schema="COBPAR" match-table="COB_CONT_MANTENCION"/>
+		<schema-selection match-schema="COBPAR" match-table="COB_PAGARE"/>
+		<schema-selection match-schema="COBPAR" match-table="COB_RENEG_PGRE_CUOTAS"/>
+		<schema-selection match-schema="COBPAR" match-table="COB_CTA_CARTERA"/>
+		<schema-selection match-schema="COBPAR" match-table="COB_PERIODO_FASE"/>
+		<schema-selection match-schema="COBPAR" match-table="COB_FASES"/>
+		
+		<schema-selection match-schema="VTAPAR" match-table="VTA_CONTRATOS"/>
+		<schema-selection match-schema="VTAPAR" match-table="VTA_PGRE_OPER_CONT"/>
+		<schema-selection match-schema="VTAPAR" match-table="VTA_OPER"/>
+		<schema-selection match-schema="VTAPAR" match-table="VTA_OPER_UBIC"/>
+		<schema-selection match-schema="VTAPAR" match-table="VTA_UBICACION"/>
+		
+		<schema-selection match-schema="GENPAR" match-table="GEN_VAL_CONV_MOND"/>
+		<schema-selection match-schema="GENPAR" match-table="GEN_EMPLEADOS"/>
+		<schema-selection match-schema="GENPAR" match-table="GEN_EMPR_UNEG"/>
+		<schema-selection match-schema="GENPAR" match-table="GEN_UNID_NEGOCIOS"/>
+		<schema-selection match-schema="VTAPAR" match-table="VTA_PERIODO"/>
+		<schema-selection match-schema="VTAPAR" match-table="VTA_CONVENIO"/>
+		<schema-selection match-schema="GENPAR" match-table="GEN_EMPRESAS"/>
+		<schema-selection match-schema="VTAPAR" match-table="VTA_FUENTE"/>
+		<schema-selection match-schema="GENPAR" match-table="GEN_ORG_GRP_VTA"/>
+		<schema-selection match-schema="GENPAR" match-table="GEN_PERSONAS"/>
+		<schema-selection match-schema="VTAPAR" match-table="VTA_CONT_ENTR"/>
+		<schema-selection match-schema="COBPAR" match-table="COB_CATALOGO_PGRE"/>
+		<schema-selection match-schema="COBPAR" match-table="COB_PROC_ASIG_CART"/>
+		<!-- SIMULACION -->
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_ESTADO_SIMULACION" />
+    	<schema-selection match-schema="CBZPAR" match-table="CBZ_SIMULACION"/>
+    	<schema-selection match-schema="CBZPAR" match-table="CBZ_SIMULACION_DOCUMENTOS"/>
+    	<schema-selection match-schema="CBZPAR" match-table="CBZ_SIMULACION_PAGARES"/>
+    	<schema-selection match-schema="CBZPAR" match-table="CBZ_SIMULACION_TIPO_DOCUMENTO"/>
+    	<schema-selection match-schema="CBZPAR" match-table="CBZ_TIPO_SIMULACION_CONTRATO"/>
+    	<schema-selection match-schema="CBZPAR" match-table="CBZ_ESTADO_AUTORIZA"/>
+    	<schema-selection match-schema="CBZPAR" match-table="CBZ_SIMULACION_DOCUMENTO_IMG"/>
+    	<!-- ARBOL DE GESTION -->
+	    <schema-selection match-schema="CBZPAR" match-table="CBZ_RESULTADO_ARBOL_GESTION"/>
+	    <schema-selection match-schema="CBZPAR" match-table="CBZ_DATOS_DEMOGRAFICOS_SECU"/>
+	    <schema-selection match-schema="CBZPAR" match-table="CBZ_COB_CATALOGO_PGRE_DETALLE"/>
+	    <schema-selection match-schema="CBZPAR" match-table="CBZ_CANALES_USERPROFILE"/>
+	    <schema-selection match-schema="CBZPAR" match-table="CBZ_GESTION_COBRANZA_HIST"/>
+	    <schema-selection match-schema="CBZPAR" match-table="CBZ_ARBOL_GESTION"/>
+	    <schema-selection match-schema="CBZPAR" match-table="CBZ_ARBOL_GESTION_VERSION"/>
+	    <schema-selection match-schema="CBZPAR" match-table="CBZ_ARBOL_GESTION_VALOR"/>
+	    <schema-selection match-schema="CBZPAR" match-table="CBZ_ARBOL_GESTION_TIPO_DATO"/>
+	    <schema-selection match-schema="CBZPAR" match-table="CBZ_CANALES"/>
+	    <schema-selection match-schema="CBZPAR" match-table="CBZ_PARAM_CATEGORIA"/>
+    	<schema-selection match-schema="CBZPAR" match-table="CBZ_ARBOL_GESTION_TITULOS"/>
+    	<schema-selection match-schema="CBZPAR" match-table="CBZ_USER_CATALOGO_PGRE"/>
+    	<schema-selection match-schema="CBZPAR" match-table="CBZ_USER_CATALOGO_PGRE_TMP"/>
+    	<schema-selection match-schema="CBZPAR" match-table="CBZ_PRUEBAS_AUTOMATIZADAS"/>
+    	<schema-selection match-schema="CBZPAR" match-table="CBZ_ARBOL_GESTION_NOTIF_ESTADO"/>
+    	<schema-selection match-schema="CBZPAR" match-table="CBZ_ARBOL_GESTION_NOTIFICACION"/>
+    	
+    	<schema-selection match-schema="SEGPAR" match-table="SEG_POLIZAS_SEGUROS"/>
+    	
+        <schema-selection match-schema="CBZPAR" match-table="CBZ_ABMINIM_PARAM"/>
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_CAMPANA_PARAM"/>
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_CATEGORIA_PARAM"/>
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_OBENCH_PARAM"/>
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_SEGMENTACION_PARAM"/>
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_PERIODO_CONF"/>
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_PROP_TIPO"/>
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_PROPIEDADES"/>
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_SISTEMAS_PROP"/>
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_OBENCH_CAMPOS"/>
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_CRITERIO_UNO"/>
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_CRITERIO_UNO_RENEG_ASIG"/>
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_CATALOGO_PGRE_DETALLE_TEMP"/>
+		
+		<!-- modulo de validaciones de recaudador a domicilio -->
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_GEST_COMUNAS_RURALES"/>
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_GEST_DIAS_FESTIVOS"/>
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_GEST_DIAS_PERMITIDOS"/>
+		<schema-selection match-schema="CBZPAR" match-table="CBZ_GEST_REGIONES_PERMITIDAS"/>
+		
+    	
+</hibernate-reverse-engineering>
+
