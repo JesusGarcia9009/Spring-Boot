@@ -4,14 +4,10 @@ public enum KeyClaimsTokenEnum {
 	
 	ID_USUARIO("idUsuario"),
 	FULL_NAME("fullName"),
-	EMAIL("email"),
 	USERNAME("username"),
-	PICTURE("picture"),
 	AUTHORITIES("authorities"),
 	ROLES("roles"),
 	RUT("rut"),
-	USERINPUT("userinput"),
-	TOKEN("token"),
 	PERFILES("perfiles"),
 	APLICACIONES("aplicaciones");
 	

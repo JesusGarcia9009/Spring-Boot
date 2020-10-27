@@ -9,22 +9,22 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.lib.common.session.entity.ProfileModel;
-import com.lib.common.session.repository.ProfileRepository;
-import com.lib.common.session.security.dto.RolDTO;
+import com.lib.common.dto.RolDTO;
+import com.lib.common.entity.PerfilModel;
+import com.lib.common.repository.PerfilRepository;
 
 @Component
 public class RolUtil {
 
 	@SuppressWarnings("unused")
-	private static ProfileRepository profileRepository;
+	private static PerfilRepository perfilRepository;
 	
 	@Autowired
-	private ProfileRepository profile;
+	private PerfilRepository perfil;
 
 	@PostConstruct
 	public void init() {
-		RolUtil.profileRepository = profile;
+		RolUtil.perfilRepository = perfil;
 	}
 
 	/**
@@ -48,14 +48,14 @@ public class RolUtil {
 
 	}
 
-	public static List<ProfileModel> getAllRoles() {
-		return RolUtil.profileRepository.findAll();
+	public static List<PerfilModel> getAllRoles() {
+		return perfilRepository.findAll();
 	}
 
-	public static String getRolDeList(List<ProfileModel> roles, String name) {
-		List<ProfileModel> listRol = roles.stream().filter(rol -> rol.getName().trim().equalsIgnoreCase(name.strip()))
+	public static String getRolDeList(List<PerfilModel> roles, String name) {
+		List<PerfilModel> listRol = roles.stream().filter(rol -> rol.getNombre().trim().equalsIgnoreCase(name.strip()))
 				.collect(Collectors.toList());
-		return (listRol != null) ? listRol.get(0).getIdProfile().toString() : "0";
+		return (listRol != null) ? listRol.get(0).getIdPerfil().toString() : "0";
 	}
 	
 	

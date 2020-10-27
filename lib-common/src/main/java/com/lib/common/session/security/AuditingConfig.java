@@ -8,7 +8,7 @@ import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import com.lib.common.session.security.dto.UserPrincipal;
+import com.lib.common.dto.UserPrincipal;
 
 import java.util.Optional;
 
