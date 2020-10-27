@@ -53,8 +53,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.oracle.ojdbc</groupId>
-			<artifactId>ojdbc8</artifactId>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 
@@ -63,16 +63,19 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+		
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger2</artifactId>
 			<version>${springfox.version}</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>${springfox.version}</version>
 		</dependency>
+		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -98,8 +101,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.pdr.common</groupId>
-			<artifactId>pdr-lib-common</artifactId>
+			<groupId>com.lib.common</groupId>
+			<artifactId>lib-common</artifactId>
 			<version>0.0.1</version>
 		</dependency>
 

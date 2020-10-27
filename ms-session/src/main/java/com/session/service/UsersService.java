@@ -1,8 +1,6 @@
 package com.session.service;
 
-import java.math.BigDecimal;
-
-import com.pdr.common.session.entity.UsersModel;
+import com.lib.common.entity.UsuarioModel;
 
 
 /**
@@ -17,7 +15,7 @@ public interface UsersService {
 	 * @param dto
 	 * @return
 	 */
-	public UsersModel buscarUsers(BigDecimal id); 
+	public UsuarioModel buscarUsers(Long id); 
 	
 	/**
 	 * Obtiene el el modelo by username o rut
@@ -25,7 +23,7 @@ public interface UsersService {
 	 * @param string userNameOrRut
 	 * @return model @see UsersModel
 	 */
-	public UsersModel buscarUserByNameOrRut(String userNameOrRut); 
+	public UsuarioModel buscarUserByNameOrRut(String userNameOrRut); 
 	
 	/**
 	 * Cuenta que exista el usuario por rut o urname

@@ -11,9 +11,9 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-import com.pdr.common.exception.UserNotAuthException;
-import com.pdr.common.session.entity.UsersModel;
-import com.pdr.common.session.security.dto.UserPrincipal;
+import com.lib.common.dto.UserPrincipal;
+import com.lib.common.entity.UsuarioModel;
+import com.lib.common.exception.UserNotAuthException;
 import com.session.config.JwtTokenProvider;
 
 
@@ -60,8 +60,8 @@ public class JwtTokenUtil {
 	 * @param usuario
 	 * @return
 	 */
-	public String refreshToken(UsersModel usuario) throws UserNotAuthException {
-		LOGGER.info("refreshToken -> idUsuario " + usuario.getFullName());
+	public String refreshToken(UsuarioModel usuario) throws UserNotAuthException {
+		LOGGER.info("refreshToken -> idUsuario " + usuario.getNombre());
 		String jwt ="";
 		try {
 			Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -70,10 +70,10 @@ public class JwtTokenUtil {
 			UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
 
 			// Actualizamos los datos
-			userPrincipal.setUsername(usuario.getUsername());
-			userPrincipal.setDscEmail(usuario.getEmail());
-			userPrincipal.setFullName(usuario.getFullName());
-			userPrincipal.setPassword(usuario.getPassword());
+			userPrincipal.setUsername(usuario.getUsuario());
+			userPrincipal.setDscEmail("");
+			userPrincipal.setFullName(usuario.getNombre() + " " + usuario.getApellidoPaterno() + " " + usuario.getApellidoMaterno());
+			userPrincipal.setPassword(usuario.getPass());
 			userPrincipal.setRut(usuario.getRut());
 
 

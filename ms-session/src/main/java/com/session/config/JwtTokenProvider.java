@@ -13,9 +13,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.pdr.common.session.enums.KeyClaimsTokenEnum;
-import com.pdr.common.session.security.dto.RolDTO;
-import com.pdr.common.session.security.dto.UserPrincipal;
+import com.lib.common.dto.RolDTO;
+import com.lib.common.dto.UserPrincipal;
+import com.lib.common.session.enums.KeyClaimsTokenEnum;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
@@ -62,12 +62,8 @@ public class JwtTokenProvider {
 		
 		claims.put(KeyClaimsTokenEnum.ID_USUARIO.getDescripcion(), userPrincipal.getIdUsuario());
 		claims.put(KeyClaimsTokenEnum.FULL_NAME.getDescripcion(), userPrincipal.getFullName());
-		claims.put(KeyClaimsTokenEnum.EMAIL.getDescripcion(), userPrincipal.getDscEmail());
 		claims.put(KeyClaimsTokenEnum.USERNAME.getDescripcion(), userPrincipal.getUsername());
-		claims.put(KeyClaimsTokenEnum.PICTURE.getDescripcion(), userPrincipal.getDscImagen());
 		claims.put(KeyClaimsTokenEnum.RUT.getDescripcion(), userPrincipal.getRut());
-		claims.put(KeyClaimsTokenEnum.USERINPUT.getDescripcion(), userPrincipal.getUserInput());
-		claims.put(KeyClaimsTokenEnum.TOKEN.getDescripcion(), userPrincipal.getToken());
 
 		Date expiryDate = new Date(System.currentTimeMillis() + 6000000);
 
@@ -137,12 +133,8 @@ public class JwtTokenProvider {
 		userPrincipal.setListRoles(getRoles(token));
 		userPrincipal.setIdUsuario(getUserIdFromJWT(token));
 		userPrincipal.setFullName(findKeyClaimsInData(KeyClaimsTokenEnum.FULL_NAME, claims));
-		userPrincipal.setDscEmail(findKeyClaimsInData(KeyClaimsTokenEnum.EMAIL, claims));
 		userPrincipal.setUsername(findKeyClaimsInData(KeyClaimsTokenEnum.USERNAME, claims));
-		userPrincipal.setDscImagen(findKeyClaimsInData(KeyClaimsTokenEnum.PICTURE, claims));
 		userPrincipal.setRut(findKeyClaimsInData(KeyClaimsTokenEnum.RUT, claims));
-		userPrincipal.setToken(findKeyClaimsInData(KeyClaimsTokenEnum.TOKEN, claims));
-		userPrincipal.setUserInput(findKeyClaimsInData(KeyClaimsTokenEnum.USERINPUT, claims));
 		
 
 		return userPrincipal;
