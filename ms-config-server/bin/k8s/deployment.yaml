@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pdr-config-deployment
+  namespace: cross
+  labels:
+    app: pdr-config
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pdr-config
+  template:
+    metadata:
+      labels:
+        app: pdr-config
+    spec:
+      containers:
+      - name: pdr-config
+        image: pjreyesc/pdr-config 
+        ports:
+        - name: http
+          containerPort: 8888
+        env:
+        - name: CONFIG_USER
+          valueFrom:
+            secretKeyRef:
+                name: configserver-security
+                key: configserver.username
+        - name: CONFIG_PASSWORD
+          valueFrom:
+            secretKeyRef:
+                name: configserver-security
+                key: configserver.password

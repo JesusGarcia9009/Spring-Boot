@@ -1,0 +1,23 @@
+# HTTP Server
+server:
+  port: 8888
+
+spring:
+  # Spring Cloud Config Server Repository
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/JesusGarcia9009/Spring-Boot
+          skipSslValidation: true
+          timeout: 15
+          username: JesusGarcia9009
+          password: jgarcia.123
+  
+  # Spring properties
+  profiles:
+    active: Developer
+  #security:
+  #  user:
+  #    name:test
+  #    password:test.123
