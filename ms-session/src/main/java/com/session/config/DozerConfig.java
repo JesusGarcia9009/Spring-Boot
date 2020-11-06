@@ -5,7 +5,11 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * @Author BS2.
+ * Mapper - Spring Boot
+ *
+ * @author Jesus Garcia
+ * @since 1.0
+ * @version jdk-11
  */
 @Configuration
 public class DozerConfig {

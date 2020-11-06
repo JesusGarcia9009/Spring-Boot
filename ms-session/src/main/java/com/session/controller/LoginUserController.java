@@ -2,9 +2,9 @@ package com.session.controller;
 
 import org.springframework.http.ResponseEntity;
 
-import com.lib.common.exception.UserNotAuthException;
 import com.session.dto.UserAuthRequestDTO;
 import com.session.dto.UserAuthResponseDTO;
+import com.session.exception.UserNotAuthException;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

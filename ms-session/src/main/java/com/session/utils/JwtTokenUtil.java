@@ -11,10 +11,10 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-import com.lib.common.dto.UserPrincipal;
-import com.lib.common.entity.UsuarioModel;
-import com.lib.common.exception.UserNotAuthException;
 import com.session.config.JwtTokenProvider;
+import com.session.dto.UserPrincipal;
+import com.session.entities.UsuarioModel;
+import com.session.exception.UserNotAuthException;
 
 
 /**

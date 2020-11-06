@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.lib.common.dto.UserPrincipal;
-import com.lib.common.exception.UserNotAuthException;
 import com.session.dto.UserAuthRequestDTO;
 import com.session.dto.UserAuthResponseDTO;
+import com.session.dto.UserPrincipal;
+import com.session.exception.UserNotAuthException;
 import com.session.utils.JwtTokenUtil;
 
 import lombok.extern.slf4j.Slf4j;

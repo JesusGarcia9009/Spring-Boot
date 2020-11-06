@@ -1,6 +1,6 @@
 package com.session.service;
 
-import com.lib.common.entity.UsuarioModel;
+import com.session.entities.UsuarioModel;
 
 
 /**

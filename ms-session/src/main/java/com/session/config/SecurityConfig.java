@@ -22,10 +22,11 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 
 /**
- * Configuracion de token en pdr, con esto controlamos el acceso a nuestros
- * servicios.
- * 
- * @author BS2
+ * SecurityConfig - Spring Boot
+ *
+ * @author Jesus Garcia
+ * @since 1.0
+ * @version jdk-11
  */
 @Configuration
 @EnableWebSecurity

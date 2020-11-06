@@ -3,7 +3,7 @@ package com.session.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.lib.common.entity.UsuarioModel;
+import com.session.entities.UsuarioModel;
 
 /**
  * @description The Interface CobPagareRepository.

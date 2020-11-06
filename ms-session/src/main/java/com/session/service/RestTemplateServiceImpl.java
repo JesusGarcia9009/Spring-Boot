@@ -22,7 +22,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.type.CollectionType;
-import com.lib.common.exception.UserNotAuthException;
+import com.session.exception.UserNotAuthException;
 
 import lombok.extern.slf4j.Slf4j;
 

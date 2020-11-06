@@ -13,11 +13,11 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.lib.common.dto.RolDTO;
-import com.lib.common.dto.UserPrincipal;
-import com.lib.common.entity.PerfilModel;
-import com.lib.common.entity.UsuarioModel;
-import com.lib.common.exception.UserNotAuthException;
+import com.session.dto.RolDTO;
+import com.session.dto.UserPrincipal;
+import com.session.entities.PerfilModel;
+import com.session.entities.UsuarioModel;
+import com.session.exception.UserNotAuthException;
 import com.session.repository.PerfilRepository;
 import com.session.utils.ConstantesUtil;
 

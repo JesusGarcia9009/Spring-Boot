@@ -8,27 +8,36 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 /**
- * Configuracion de los url permitidad por aplicacion.
- * 
- * @author NelsonAlvaradoVidal
+ * WebMvcConfig - Configuracion de los url permitidad por aplicacion - Spring Boot
  *
+ * @author Jesus Garcia
+ * @since 1.0
+ * @version jdk-11
  */
 @Configuration
 @EnableWebMvc
 public class WebMvcConfig implements WebMvcConfigurer {
 
 	/**
-	 * Metodo de WebMvcConfig
+	 * Metodo de addCorsMappings para ngnx - Spring Boot
 	 *
-	 * @param registry
-	 *
-	 * @author nalvarado bs2
+	 * @author Jesus Garcia
+	 * @since 1.0
+	 * @version jdk-11
 	 */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**");
     }
     
+    
+    /**
+	 * Metodo de addResourceHandlers para ngnx - Spring Boot
+	 *
+	 * @author Jesus Garcia
+	 * @since 1.0
+	 * @version jdk-11
+	 */
     @Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");

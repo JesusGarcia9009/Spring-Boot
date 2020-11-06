@@ -17,10 +17,11 @@ import org.springframework.util.StringUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 /**
- * Filtro que se ejecuta cada vez que se tiene una peticion http el cual
- * verifica el token del usuario para acceder a los servicios que se encuentran
- * privados por Spring Framework
- * 
+ * JwtAuthenticationFilter (filtro por peticion http) - Spring Boot
+ *
+ * @author Jesus Garcia
+ * @since 1.0
+ * @version jdk-11
  */
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 

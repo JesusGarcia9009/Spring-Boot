@@ -5,7 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.lib.common.entity.UsuarioModel;
+import com.session.entities.UsuarioModel;
 import com.session.repository.UsuarioRepository;
 
 import lombok.extern.slf4j.Slf4j;

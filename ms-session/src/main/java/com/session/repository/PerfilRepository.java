@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.lib.common.entity.PerfilModel;
+import com.session.entities.PerfilModel;
 
 /**
  * @description The Interface CobPagareRepository.
